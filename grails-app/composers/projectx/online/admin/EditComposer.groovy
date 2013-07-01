@@ -3,15 +3,52 @@ package projectx.online.admin
 import org.zkoss.zk.ui.Component
 import org.zkoss.zk.ui.event.Event
 import org.zkoss.zul.*
-import projectx.online.Admin
+import projectx.online.*
 
 class EditComposer {
     Window self
+	Textbox usernameBox
+	def springSecurityService
+	Window editWindow
+	Button adminListButton
+	Checkbox acountExpiredCheck
+	Checkbox enabledCheckBox
+	Textbox passwordBox
+	Textbox passwordReBox
+	
     def afterCompose = {Component comp ->
         //todo initialize components here
+		checkLoggedInUser()
     }
 
+	void checkLoggedInUser(){
+		String userName = springSecurityService.currentUser.username
+		
+		def userLoggedIn = Admin.findByUsername(userName)
+		def adminRole = Role.findByAuthority("ROLE_ADMIN")
+		def userRole = AdminRole.findByAdminAndRole(userLoggedIn, adminRole)
+		
+		if(userRole==null && usernameBox.value!=userName){
+			redirect(controller: "login", action:"denied")
+		}else if(userRole!=null && usernameBox.value!=userName){
+			editWindow.visible = true
+			adminListButton.visible=true
+			acountExpiredCheck.disabled=false
+			enabledCheckBox.disabled=false
+		}else if(userRole!=null){
+			adminListButton.visible=true
+			editWindow.visible = true
+		}else{
+			editWindow.visible = true
+		}
+	}
+	
     void onClick_saveButton(Event e) {
+		if(passwordBox.value!=passwordReBox.value){
+			String failureMessage = "Passwords do not match"
+			Messagebox.show(failureMessage, g.message(code:'error',default:'Error'), Messagebox.YES, Messagebox.ERROR)
+			return
+		}
         def params=self.params
         def adminInstance = Admin.get(params.id)
         if (adminInstance) {

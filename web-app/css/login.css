@@ -1,0 +1,121 @@
+body {
+
+}
+
+#login {
+    margin: 15px 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+#login .inner {
+    vertical-align: middle;
+    font-family: Helvetica;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 60px auto;
+}
+
+#login .inner .headImage {
+    text-align: center;
+}
+
+#login .inner .headImage img {
+    height: 100px;
+}
+#login .inner .fheader .registerButton{
+    text-align: center;
+    color: rgb(46, 55, 65);
+    font-weight: bold;
+}
+
+
+#login .inner .cssform {
+    text-align: center;
+    font-size: 16px;
+}
+
+#login .inner .cssform p {
+    clear: left;
+    margin: 0;
+    padding: 4px 0 3px 0;
+    /*padding-left: 105px;*/
+    margin-bottom: 10px;
+    height: 1%;
+}
+
+#login .inner .cssform input[type='text'] {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 0 3px 0 3px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #f0f0fa;
+}
+
+#login .inner .cssform input[type='password'] {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 0 3px 0 3px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #f0f0fa;
+}
+
+#login .inner .cssform input[type='submit'] {
+    width: 210px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ca0a12;
+    color: #FFFFFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 0 3px 0 3px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+#login .inner .cssform label {
+    font-weight: bold;
+    float: left;
+    text-align: right;
+    margin-left: -105px;
+    width: 110px;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+
+#login #remember_me_holder label {
+    float: none;
+    margin-left: 0;
+    text-align: left;
+    width: 200px
+}
+
+#login .inner .cssform .login_message {
+	padding: 6px 25px 20px 25px;
+	color: #c33;
+}
+
+#login .inner .text_ {
+    width: 120px;
+}
+
+#login .inner .chk {
+    height: 12px;
+}

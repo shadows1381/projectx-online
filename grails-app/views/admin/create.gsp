@@ -16,7 +16,8 @@
     </z:grid>
     <z:hlayout>
         <z:button id="saveButton" label="${message(code: 'default.button.create.label', default: 'Create')}"/>
-        <z:button href="${createLink(action:'list')}" label="${message(code: 'default.list.label', args:[entityName])}"/>
+        <z:button id="backButton" label="${message(code: 'default.button.cancel.label', default: 'Cancel')}"/>
+        
     </z:hlayout>
 </z:window>
 </body>

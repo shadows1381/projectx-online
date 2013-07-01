@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<z:window style="padding:5px" apply="projectx.online.admin.EditComposer">
+<z:window style="padding:5px" apply="projectx.online.admin.EditComposer" id="editWindow" visible="false">
     <z:longbox name="id" value="${adminInstance.id}" visible="false"/>
     <z:longbox name="version" value="${adminInstance.version}" visible="false"/>
     <g:if test="${flash.message}">
@@ -28,7 +28,7 @@
     </z:grid>
     <z:hlayout>
         <z:button id="saveButton" label="${message(code: 'default.button.update.label', default: 'Update')}"/>
-        <z:button href="${createLink(action:'list')}" label="${message(code: 'default.list.label', args:[entityName])}"/>
+        <z:button href="${createLink(action:'list')}" label="${message(code: 'default.list.label', args:[entityName])}" id="adminListButton" visible="false"/>
     </z:hlayout>
 </z:window>
 </body>

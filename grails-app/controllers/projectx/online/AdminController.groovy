@@ -2,9 +2,9 @@ package projectx.online
 
 import org.springframework.security.access.annotation.Secured
 import grails.plugins.springsecurity.Secured
-@Secured(['IS_AUTHENTICATED_FULLY'])
-class AdminController {
 
+class AdminController {
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
@@ -17,7 +17,7 @@ class AdminController {
         adminInstance.properties = params
         return [adminInstance: adminInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def adminInstance = Admin.get(params.id)
         if (!adminInstance) {
