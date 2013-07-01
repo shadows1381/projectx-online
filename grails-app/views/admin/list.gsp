@@ -26,9 +26,7 @@
             </g:if>
             <z:grid id="grid" emptyMessage="${message(code:'emptyMessage',default:'No Record')}">
                 <z:columns sizable="true">
-                    <z:column label="${message(code: 'admin.id.label', default: 'Id')}"/>
                     <z:column label="${message(code: 'admin.username.label', default: 'Username')}"/>
-                    <z:column label="${message(code: 'admin.password.label', default: 'Password')}"/>
                     <z:column label="${message(code: 'admin.email.label', default: 'Email')}"/>
                     <z:column label="${message(code: 'admin.accountExpired.label', default: 'Account Expired')}"/>
                     <z:column label="${message(code: 'admin.accountLocked.label', default: 'Account Locked')}"/>

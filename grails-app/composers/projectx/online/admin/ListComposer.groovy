@@ -45,9 +45,7 @@ class ListComposer {
 	private rowRenderer = {Row row, Object id, int index ->
 		def adminInstance = Admin.get(id)
 		row << {
-			a(href: g.createLink(controller:"admin",action:'edit',id:id), label: adminInstance.id)
 			label(value: adminInstance.username)
-			label(value: adminInstance.password)
 			label(value: adminInstance.email)
 			label(value: adminInstance.accountExpired)
 			label(value: adminInstance.accountLocked)

@@ -12,18 +12,18 @@ class CreateComposer {
 	
 	Textbox passwordBox
 	Textbox passwordReBox
-	
 	def springSecurityService
 	
     def afterCompose = {Component comp ->
         //todo initialize components here
+		
 		enabledCheckBox.checked = true
     }
 
     void onClick_saveButton(Event e) {
 		if(passwordBox.value!=passwordReBox.value){
-			String failureMessage = "Passwords do not match"
-			Messagebox.show(failureMessage, g.message(code:'error',default:'Error'), Messagebox.YES, Messagebox.ERROR)
+			passwordReBox.errorMessage = g.message(code: 'projectx.online.passwords.matches')
+			passwordBox.errorMessage = g.message(code: 'projectx.online.passwords.matches')
 			return
 		}
         def adminInstance = new Admin(self.params)

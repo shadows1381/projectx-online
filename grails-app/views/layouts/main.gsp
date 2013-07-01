@@ -29,7 +29,7 @@
 <body>
 	<div class="header_back_ground">
 		<z:menubar id="menubar" autodrop="true"
-			sclass="z-menubar-hor-main-menu">
+			sclass="z-menubar-hor-main-menu" apply="projectx.online.layouts.MenuComposer">
 			<z:menuitem label="Home" height="40px;" top="40px;"
 				href="${createLink(uri: '/')}" image="${fam.icon(name: 'house')}" />
 			<sec:ifAnyGranted roles="ROLE_ADMIN">
