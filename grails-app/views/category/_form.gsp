@@ -9,7 +9,7 @@
     <z:row>
         <z:label value="${message(code:'category.admin.label',default:'Admin')}"/>
         
-        <z:bandbox readonly="true" width="400px" id="adminFld" autodrop="true" onClick="adminSearch.focus();">
+        <z:bandbox readonly="true" width="405px" id="adminFld" autodrop="true" onClick="adminSearch.focus();" disabled="true">
 	        <z:bandpopup>
 	            <z:vbox>
 	                <z:hbox>

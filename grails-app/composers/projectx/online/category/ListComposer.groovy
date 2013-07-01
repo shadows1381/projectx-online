@@ -3,14 +3,15 @@ package projectx.online.category
 import org.zkoss.zk.ui.Component
 import org.zkoss.zul.*
 import org.zkoss.zk.ui.event.*
-import projectx.online.Category
+import projectx.online.*
 
 class ListComposer {
     Grid grid
     ListModelList listModel = new ListModelList()
     Paging paging
     Longbox idLongbox
-
+	def springSecurityService
+	
     def afterCompose = {Component comp ->
         grid.setRowRenderer(rowRenderer as RowRenderer)
         grid.setModel(listModel)
@@ -25,7 +26,7 @@ class ListComposer {
         def event = fe.origin
         redraw(event.activePage)
     }
-
+	
     private redraw(int activePage = 0) {
         int offset = activePage * paging.pageSize
         int max = paging.pageSize
@@ -34,6 +35,17 @@ class ListComposer {
             if (idLongbox.value) {
                 eq('id', idLongbox.value)
             }
+			
+			String userName = springSecurityService.currentUser.username
+			
+			def userLoggedIn = Admin.findByUsername(userName)
+			def adminRole = Role.findByAuthority("ROLE_ADMIN")
+			def userRole = AdminRole.findByAdminAndRole(userLoggedIn, adminRole)
+			
+			if(userRole==null){
+				eq('admin',  springSecurityService.currentUser)
+			}
+			
         }
         paging.totalSize = categoryInstanceList.totalCount
         listModel.clear()

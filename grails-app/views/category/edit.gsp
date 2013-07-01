@@ -6,8 +6,8 @@
 </head>
 
 <body>
-<z:window style="padding:5px" apply="projectx.online.category.EditComposer">
-    <z:longbox name="id" value="${categoryInstance.id}" visible="false"/>
+<z:window style="padding:5px" apply="projectx.online.category.EditComposer" id="editWindow" visible="false">
+    <z:longbox name="id" value="${categoryInstance.id}" visible="false" id="categoryIdBox"/>
     <z:longbox name="version" value="${categoryInstance.version}" visible="false"/>
     <g:if test="${flash.message}">
         <z:window mode="popup" border="normal" style="margin-bottom:5px">
@@ -29,6 +29,8 @@
     <z:hlayout>
         <z:button id="saveButton" label="${message(code: 'default.button.update.label', default: 'Update')}"/>
         <z:button href="${createLink(action:'list')}" label="${message(code: 'default.list.label', args:[entityName])}"/>
+        
+        <z:longbox id="adminIdBox" name="adminIdBox" visible="false" />
     </z:hlayout>
 </z:window>
 </body>

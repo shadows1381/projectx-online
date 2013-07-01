@@ -19,13 +19,29 @@ class CreateComposer {
 	String searchListBoxStr = ""
 	Longbox adminIdBox
 	def sessionFactory
+	def springSecurityService
 	
     def afterCompose = {Component comp ->
         //todo initialize components here
 		adminListBox.setItemRenderer(adminListBoxRowRenderer as ListitemRenderer)
 		adminListBox.setModel(adminListBoxModel)
 		redrawAdminListBox()
+		checkLoggedInUser()
     }
+	
+	void checkLoggedInUser(){
+		String userName = springSecurityService.currentUser.username
+		
+		def userLoggedIn = Admin.findByUsername(userName)
+		def adminRole = Role.findByAuthority("ROLE_ADMIN")
+		def userRole = AdminRole.findByAdminAndRole(userLoggedIn, adminRole)
+		if(userRole==null){
+			adminIdBox.value = springSecurityService.currentUser.id
+			adminFld.value=userName
+		}else{
+			adminFld.disabled = false
+		}
+	}
 
 	private redrawAdminListBox(int activePage = 0) {
 		
