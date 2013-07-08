@@ -7,7 +7,7 @@
     <body>
         <z:window style="padding:5px" apply="projectx.online.category.ListComposer">
             <z:hlayout>
-                <z:toolbarbutton href="${createLink(action:'create')}" image="/images/skin/database_add.png" label="${message(code:'default.new.label',args:[entityName])}"/>
+                <z:toolbarbutton href="${createLink(action:'create')}" image="/images/skin/database_add.png" label="New Group"/>
                 <z:space/>
                 <z:label value="${message(code:'category.id',default:'Id')}"/>
                 <z:longbox id="idLongbox"/>

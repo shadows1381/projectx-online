@@ -85,7 +85,7 @@ class EditComposer {
 					adminCnt = session.createSQLQuery(
 						"""
 						select count(admin.id) from admin 
-						where admin.username like :tagsSearch 
+						where admin.username like :adminsSearch 
 					""")
 					adminCnt.setString("adminsSearch", "%${searchListBoxStr}%")
 				

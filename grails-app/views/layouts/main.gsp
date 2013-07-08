@@ -29,9 +29,13 @@
 <body>
 	<div class="header_back_ground">
 		<z:menubar id="menubar" autodrop="true"
-			sclass="z-menubar-hor-main-menu" apply="projectx.online.layouts.MenuComposer">
+			sclass="z-menubar-hor-main-menu"
+			apply="projectx.online.layouts.MenuComposer">
 			<z:menuitem label="Home" height="40px;" top="40px;"
 				href="${createLink(uri: '/')}" image="${fam.icon(name: 'house')}" />
+			<z:menuitem label="People List" height="40px;" top="40px;"
+				href="${createLink(uri: '/person')}"
+				image="${fam.icon(name: 'user_go')}" />
 			<sec:ifAnyGranted roles="ROLE_ADMIN">
 				<z:menuitem label="Admin List" height="40px;" top="40px;"
 					href="${createLink(uri: '/admin')}"
